@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import main.Overview;
-import modell.MetaType;
+import model.MetaType;
 
 public class CheckBoxPanel extends JPanel {
 

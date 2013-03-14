@@ -78,8 +78,6 @@ public class RelativeLayoutPanel extends JPanel{
 	 */
 	public void setLayout(LayoutManager mgr) {
 		// do nothing
-		System.out.println
-		("changing layout of RelativeLayoutPanel is not allowed.");
 	}
 	
 	

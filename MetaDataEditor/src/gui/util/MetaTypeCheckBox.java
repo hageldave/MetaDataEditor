@@ -2,10 +2,10 @@ package gui.util;
 
 import javax.swing.JCheckBox;
 
-import modell.MetaType;
+import model.MetaType;
 
 /**
- * JCheckbox die zusätzlich noch einen MetaType parameter besitzt.
+ * JCheckbox die zusaetzlich noch einen MetaType parameter besitzt.
  */
 public class MetaTypeCheckBox extends JCheckBox {
 

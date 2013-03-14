@@ -11,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import main.Overview;
-import modell.MetaType;
+import model.MetaType;
 
 public class MetaDataView extends RelativeLayoutPanel {
 	
@@ -35,7 +35,7 @@ public class MetaDataView extends RelativeLayoutPanel {
 	
 	public void setAvailableMetaTypes(ArrayList<MetaType> metaTypes){
 		System.out.println("MetaDataView: changing metafields");
-		//TODO: gewuenschte metatypefelder zur verfügung stellen
+		//TODO: gewuenschte metatypefelder zur verfï¿½gung stellen
 	}
 	
 	
