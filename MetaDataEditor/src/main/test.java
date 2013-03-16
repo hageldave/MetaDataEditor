@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.exceptions.CannotReadException;
+import org.jaudiotagger.audio.exceptions.CannotWriteException;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 import org.jaudiotagger.tag.FieldKey;
@@ -71,6 +72,7 @@ public class test {
 		// soviele bytes weiter springen dass das lied zu ende ist
 		try {
 			mp3stream.skip(numOfBytes);
+			myplayer.close();
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
