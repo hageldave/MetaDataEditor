@@ -5,13 +5,12 @@ import gui.util.RelativeLayoutPanel;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
+
+import org.jaudiotagger.tag.FieldKey;
 
 import main.Overview;
-import model.MetaType;
 
 public class MetaDataView extends RelativeLayoutPanel {
 	
@@ -33,7 +32,7 @@ public class MetaDataView extends RelativeLayoutPanel {
 	}
 	
 	
-	public void setAvailableMetaTypes(ArrayList<MetaType> metaTypes){
+	public void setAvailableMetaTypes(ArrayList<FieldKey> metaTypes){
 		System.out.println("MetaDataView: changing metafields");
 		//TODO: gewuenschte metatypefelder zur verf�gung stellen
 	}

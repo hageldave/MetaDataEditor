@@ -2,31 +2,31 @@ package gui.util;
 
 import javax.swing.JCheckBox;
 
-import model.MetaType;
+import org.jaudiotagger.tag.FieldKey;
 
 /**
  * JCheckbox die zusaetzlich noch einen MetaType parameter besitzt.
  */
 public class MetaTypeCheckBox extends JCheckBox {
 
-	private MetaType metaType;
+	private FieldKey metaType;
 	
 	/**
 	 * Konstruktor.
 	 * @param title label text
 	 * @param metaType der mit dieser checkbox assoziiert ist
 	 */
-	public MetaTypeCheckBox(String title, MetaType metaType) {
+	public MetaTypeCheckBox(String title, FieldKey metaType) {
 		super(title);
 		setMetaType(metaType);
 	}
 
 	
-	public MetaType getMetaType() {
+	public FieldKey getMetaType() {
 		return metaType;
 	}
 
-	public void setMetaType(MetaType metaType) {
+	public void setMetaType(FieldKey metaType) {
 		this.metaType = metaType;
 	}
 	

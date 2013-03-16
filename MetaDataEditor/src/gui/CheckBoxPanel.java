@@ -2,20 +2,17 @@ package gui;
 
 import gui.util.MetaTypeCheckBox;
 
-import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import org.jaudiotagger.tag.FieldKey;
+
 import main.Overview;
-import model.MetaType;
 
 public class CheckBoxPanel extends JPanel {
 
@@ -47,12 +44,12 @@ public class CheckBoxPanel extends JPanel {
 	}
 
 	private void initCheckBoxes() {
-		titel = new MetaTypeCheckBox("Titel", MetaType.title);
-		interpret = new MetaTypeCheckBox("Interpret", MetaType.interpret);
-		album = new MetaTypeCheckBox("Album", MetaType.album);
-		jahr = new MetaTypeCheckBox("Jahr", MetaType.year);
-		titelnummer = new MetaTypeCheckBox("Titelnummer", MetaType.number);
-		genre = new MetaTypeCheckBox("Genre", MetaType.genre);
+		titel = new MetaTypeCheckBox("Titel", FieldKey.TITLE);
+		interpret = new MetaTypeCheckBox("Interpret", FieldKey.ARTIST);
+		album = new MetaTypeCheckBox("Album", FieldKey.ALBUM);
+		jahr = new MetaTypeCheckBox("Jahr", FieldKey.YEAR);
+		titelnummer = new MetaTypeCheckBox("Titelnummer", FieldKey.TRACK);
+		genre = new MetaTypeCheckBox("Genre", FieldKey.GENRE);
 		
 		allCheckBoxes = new MetaTypeCheckBox[]{titel,interpret,album,jahr,titelnummer,genre};
 	}
@@ -76,8 +73,8 @@ public class CheckBoxPanel extends JPanel {
 
 	}
 	
-	private ArrayList<MetaType> getCheckedTypes() {
-		ArrayList<MetaType> toReturn = new ArrayList<MetaType>();
+	private ArrayList<FieldKey> getCheckedTypes() {
+		ArrayList<FieldKey> toReturn = new ArrayList<FieldKey>();
 		for(MetaTypeCheckBox checkbox: allCheckBoxes){
 			if(checkbox.isSelected()){
 				toReturn.add(checkbox.getMetaType());
