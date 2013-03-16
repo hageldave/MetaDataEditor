@@ -96,15 +96,9 @@ public class Browser extends RelativeLayoutPanel {
 				remove(loadingLabel);
 				add(folderPane, 0f, 0.1f, false, 0.5f, 0.9f);
 				add(filePane, 0.5f, 0f, false, 0.5f, 1);
-				// frame erneuern durch kurzes minimieren
-				Container container = getParent();
-				while(container.getParent() != null){
-					container = container.getParent();
-				}
-				JFrame frame = (JFrame) container;
-				int tempState = frame.getExtendedState();
-				frame.setExtendedState(JFrame.ICONIFIED);
-				frame.setExtendedState(tempState);
+				// frame erneuern durch kurzes verstecken
+				Overview.getMainFrame().setVisible(false);
+				Overview.getMainFrame().setVisible(true);
 			}
 		});
 		// loader thread starten
@@ -126,6 +120,7 @@ public class Browser extends RelativeLayoutPanel {
 		myframe.add(new Browser());
 		myframe.setSize(500, 400);
 		myframe.setVisible(true);
+		Overview.setMainFrame(myframe);
 	}
 	
 	

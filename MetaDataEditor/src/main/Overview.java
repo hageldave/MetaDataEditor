@@ -2,6 +2,8 @@ package main;
 
 import java.io.File;
 
+import javax.swing.JFrame;
+
 import gui.Browser;
 import gui.CheckBoxPanel;
 import gui.MainFrame;
@@ -23,7 +25,7 @@ public class Overview {
 	
 	private static CheckBoxPanel checkboxPanel;
 	
-	private static MainFrame mainFrame;
+	private static JFrame mainFrame;
 	
 	private static MetaDataView metaView;
 	
@@ -55,11 +57,11 @@ public class Overview {
 		Overview.checkboxPanel = checkboxPanel;
 	}
 
-	public static MainFrame getMainFrame() {
+	public static JFrame getMainFrame() {
 		return mainFrame;
 	}
 
-	public static void setMainFrame(MainFrame mainFrame) {
+	public static void setMainFrame(JFrame mainFrame) {
 		Overview.mainFrame = mainFrame;
 	}
 
