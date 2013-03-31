@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.jar.Attributes;
 
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.exceptions.CannotReadException;
@@ -12,6 +15,8 @@ import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.TagException;
+
+import util.MetadataIO;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -78,25 +83,11 @@ public class test {
 		}
 		
 		// metadata interpret auslesen
-		try {
-			org.jaudiotagger.audio.AudioFile audFile = AudioFileIO.read(mp3);
-			System.out.println(audFile.getTag().getFirst(FieldKey.ARTIST));
-		} catch(CannotReadException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch(IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch(TagException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch(ReadOnlyFileException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch(InvalidAudioFrameException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println(MetadataIO.getMetaValue(mp3, FieldKey.ARTIST));
+		Map<FieldKey, String> metavalues = new HashMap<>();
+		metavalues.put(FieldKey.MOOD, "awesome");
+		MetadataIO.writeMetaValues(mp3, metavalues);
+		System.out.println(MetadataIO.getMetaValue(mp3, FieldKey.MOOD));
 		
 
 	}

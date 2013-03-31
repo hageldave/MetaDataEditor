@@ -1,8 +1,13 @@
 package gui;
 
+import java.awt.Color;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JSlider;
 
 public class MetaMenuBar extends JMenuBar {
 
@@ -47,5 +52,9 @@ public class MetaMenuBar extends JMenuBar {
 		data.add(removeFile);
 		data.add(removeAll);
 		data.add(exit);
+		PlayerToolbar playertoolbar = new PlayerToolbar();
+		music.add(playertoolbar);
+		playertoolbar.setSize(300, 30);
 	}
+	
 }

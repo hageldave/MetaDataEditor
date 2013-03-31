@@ -1,57 +1,56 @@
 package gui;
 
+import gui.util.NiceCheckboxList;
 import gui.util.MetaTypeCheckBox;
+import gui.util.RelativeLayoutPanel;
 
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 
 import org.jaudiotagger.tag.FieldKey;
 
 import main.Overview;
 
-public class CheckBoxPanel extends JPanel {
+public class CheckBoxPanel extends RelativeLayoutPanel {
 
-	MetaTypeCheckBox titel;
-	MetaTypeCheckBox interpret;
-	MetaTypeCheckBox album;
-	MetaTypeCheckBox jahr;
-	MetaTypeCheckBox titelnummer;
-	MetaTypeCheckBox genre;
+	MetaTypeCheckBox titel = new MetaTypeCheckBox("Titel", FieldKey.TITLE);
+	MetaTypeCheckBox interpret = new MetaTypeCheckBox("Interpret", FieldKey.ARTIST);
+	MetaTypeCheckBox album = new MetaTypeCheckBox("Album", FieldKey.ALBUM);
+	MetaTypeCheckBox jahr = new MetaTypeCheckBox("Jahr", FieldKey.YEAR);
+	MetaTypeCheckBox titelnummer = new MetaTypeCheckBox("Titelnummer", FieldKey.TRACK);
+	MetaTypeCheckBox genre = new MetaTypeCheckBox("Genre", FieldKey.GENRE);
 	
 	private MetaTypeCheckBox[] allCheckBoxes;
+	private Component[] listData;
 
 	public CheckBoxPanel() {
 		this.setVisible(true);
-		this.setLayout(new GridLayout(6, 1));
 
 		initCheckBoxes();
-		addCheckedListener();
-
 		
-		this.add(titel);
-		this.add(interpret);
-		this.add(album);
-		this.add(genre);
-		this.add(jahr);
-		this.add(titelnummer);
+		NiceCheckboxList complist = new NiceCheckboxList(listData);
+		JScrollPane scrollpane = new JScrollPane(complist);
+		this.add(scrollpane, 0.5f, 0.5f, true, 1, 1);
 
 		Overview.setCheckboxPanel(this);
 	}
 
 	private void initCheckBoxes() {
-		titel = new MetaTypeCheckBox("Titel", FieldKey.TITLE);
-		interpret = new MetaTypeCheckBox("Interpret", FieldKey.ARTIST);
-		album = new MetaTypeCheckBox("Album", FieldKey.ALBUM);
-		jahr = new MetaTypeCheckBox("Jahr", FieldKey.YEAR);
-		titelnummer = new MetaTypeCheckBox("Titelnummer", FieldKey.TRACK);
-		genre = new MetaTypeCheckBox("Genre", FieldKey.GENRE);
-		
 		allCheckBoxes = new MetaTypeCheckBox[]{titel,interpret,album,jahr,titelnummer,genre};
+		addCheckedListener();
+		JSeparator sep = new JSeparator(JSeparator.HORIZONTAL);
+		listData = new Component[]{titel, interpret, album, sep, genre, jahr, titelnummer};
 	}
 
 	private void addCheckedListener() {

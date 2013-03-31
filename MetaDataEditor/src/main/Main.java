@@ -16,8 +16,16 @@ public class Main {
 	 * @throws InstantiationException 
 	 * @throws ClassNotFoundException 
 	 */
-	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
-		UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+	public static void main(String[] args) {
+		lookandfeel: do {
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+			continue lookandfeel;
+		}
+		} while (false);
 		SwingUtilities.invokeLater(new Runnable() {
 			
 			@Override
