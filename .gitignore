@@ -4,5 +4,5 @@
 #*.jar
 *.war
 *.ear
-*.zip
+#.zip
 *.mp3
