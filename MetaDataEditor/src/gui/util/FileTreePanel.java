@@ -129,6 +129,8 @@ public class FileTreePanel extends JScrollPane {
 
 		private boolean isFileSystemRoot;
 		
+		private boolean isTreeRoot = false;
+		
 		private static FileFilter fileFilter = new FileFilter() {
 			
 			@Override
@@ -147,11 +149,14 @@ public class FileTreePanel extends JScrollPane {
 				this.children = new File[0];
 		}
 
-
+		
+		/** Konstruktor fuer Wurzel des Trees */
 		public FileTreeNode(File[] children) {
 			this.file = null;
 			this.parent = null;
 			this.children = children;
+			this.isFileSystemRoot = true;
+			this.isTreeRoot = true;
 		}
 
 
@@ -210,6 +215,16 @@ public class FileTreePanel extends JScrollPane {
 
 		public boolean isLeaf() {
 			return (this.getChildCount() == 0);
+		}
+		
+		
+		public boolean isFilesystemRoot() {
+			return isFileSystemRoot;
+		}
+		
+		
+		public boolean isTreeRoot() {
+			return isTreeRoot;
 		}
 		
 		

@@ -80,7 +80,7 @@ public class Browser extends RelativeLayoutPanel {
 					public void valueChanged(TreeSelectionEvent e) {
 						FileTreeNode node = (FileTreeNode)
 								folderPane.getTree().getLastSelectedPathComponent();
-						if(node != null){
+						if(node != null && !node.isTreeRoot()){
 							System.out.println(node.getFile());
 							if(node.getFile().exists()){
 								musicFileList.setListData(node.getFile().listFiles());
