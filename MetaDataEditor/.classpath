@@ -2,15 +2,26 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="library/jl1.0.1.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/MetaDataEditor/library/jldoc.zip!/doc"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="library/JAudioTagger.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:platform:/resource/MetaDataEditor/library/JAudioTagger_doc.zip!/doc"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="library/basicplayer_api/basicplayer3.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/MetaDataEditor/library/basicplayer_api/basicplayerdocs.zip!/docs"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="library/basicplayer_api/commons-logging-api.jar"/>
+	<classpathentry kind="lib" path="library/basicplayer_api/jflac-1.2.jar"/>
+	<classpathentry kind="lib" path="library/basicplayer_api/jl1.0.jar"/>
+	<classpathentry kind="lib" path="library/basicplayer_api/jmactritonusspi1.74.jar"/>
+	<classpathentry kind="lib" path="library/basicplayer_api/jogg-0.0.7.jar"/>
+	<classpathentry kind="lib" path="library/basicplayer_api/jorbis-0.0.15.jar"/>
+	<classpathentry kind="lib" path="library/basicplayer_api/jspeex0.9.7.jar"/>
+	<classpathentry kind="lib" path="library/basicplayer_api/kj_dsp1.1.jar"/>
+	<classpathentry kind="lib" path="library/basicplayer_api/mp3spi1.9.4.jar"/>
+	<classpathentry kind="lib" path="library/basicplayer_api/tritonus_share.jar"/>
+	<classpathentry kind="lib" path="library/basicplayer_api/vorbisspi1.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
