@@ -39,16 +39,22 @@ public class test {
 		}
 		System.out.println("play");
 		player.play();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		System.out.println("pause");
 		player.pause();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		System.out.println("resume");
 		player.play();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
+//		System.out.println("skip");
+//		player.setStreamPosition(50);
+//		Thread.sleep(1000);
+//		System.out.println("skip");
+//		player.setStreamPosition(30);
+//		Thread.sleep(1000);
 		System.out.println("skip");
-		player.setStreamPosition(50);
-		Thread.sleep(2000);
+		player.setStreamPosition(95);
+		Thread.sleep(3000);
 		System.out.println("stop");
 		player.stop();
 		
