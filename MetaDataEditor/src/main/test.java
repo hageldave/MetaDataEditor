@@ -26,8 +26,13 @@ public class test {
 
 	public static void main(String[] args) throws FileNotFoundException,
 			InterruptedException {
+		// file einlesen
+		File mp3 = new File("testfile/test.mp3"); // <- muss ggf in ordner testfile getan werden
+		
+		// metadata interpret auslesen
+		System.out.println(MetadataIO.getMetaValue(mp3, FieldKey.ARTIST));
+		
 		// player bauen
-		File mp3 = new File("testfile/test.mp3");
 		BuggyAudioPlayer player = new BuggyAudioPlayer();
 		player.addProgressListener(new BuggyPlayerProgressListener() {
 			
@@ -66,8 +71,7 @@ public class test {
 		player.stop();
 		
 		
-		// metadata interpret auslesen
-		System.out.println(MetadataIO.getMetaValue(mp3, FieldKey.ARTIST));
+		// metadaten 'mood' schreiben
 		Map<FieldKey, String> metavalues = new HashMap<>();
 		metavalues.put(FieldKey.MOOD, "awesome");
 		MetadataIO.writeMetaValues(mp3, metavalues);
