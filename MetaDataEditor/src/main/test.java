@@ -16,6 +16,7 @@ import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.TagException;
 
 import util.BuggyAudioPlayer;
+import util.BuggyAudioPlayer.BuggyPlayerProgressListener;
 import util.MetadataIO;
 
 
@@ -28,6 +29,14 @@ public class test {
 		// player bauen
 		File mp3 = new File("testfile/test.mp3");
 		BuggyAudioPlayer player = new BuggyAudioPlayer();
+		player.addProgressListener(new BuggyPlayerProgressListener() {
+			
+			@Override
+			public void madeProgress(int percent) {
+				System.out.println("PROGRESS: " + percent + "%");
+				
+			}
+		});
 		System.out.println("open");
 		try {
 			player.openAudioFile(mp3);
@@ -37,21 +46,21 @@ public class test {
 		}
 		System.out.println("play");
 		player.play();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		System.out.println("pause");
 		player.pause();
 		Thread.sleep(1000);
 		System.out.println("resume");
 		player.play();
 		Thread.sleep(1000);
-//		System.out.println("skip");
-//		player.setStreamPosition(50);
-//		Thread.sleep(1000);
-//		System.out.println("skip");
-//		player.setStreamPosition(30);
-//		Thread.sleep(1000);
 		System.out.println("skip");
-		player.setStreamPosition(95);
+		player.setStreamPosition(50);
+		Thread.sleep(1000);
+		System.out.println("skip");
+		player.setStreamPosition(30);
+		Thread.sleep(1000);
+		System.out.println("skip");
+		player.setStreamPosition(100);
 		Thread.sleep(3000);
 		System.out.println("stop");
 		player.stop();

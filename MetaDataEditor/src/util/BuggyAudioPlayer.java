@@ -1,8 +1,13 @@
 package util;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Map;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 import javazoom.jlgui.basicplayer.BasicController;
 import javazoom.jlgui.basicplayer.BasicPlayer;
@@ -71,9 +76,12 @@ public class BuggyAudioPlayer {
 	 */
 	public void openAudioFile(File audioFile) throws BasicPlayerException{
 		this.audioFile = audioFile;
-		filelength = (int) audioFile.length();
-		if(filelength != audioFile.length()){
-			throw new BasicPlayerException("file is too large!");
+		filelength = getFilelength(audioFile);
+		if(filelength < 0){
+			filelength = (int)audioFile.length();
+			if(filelength != audioFile.length()){
+				throw new BasicPlayerException("file is too large!");
+			}
 		}
 		stop();
 		control.open(audioFile);
@@ -196,5 +204,8 @@ public class BuggyAudioPlayer {
 		 */
 		public void madeProgress(int percent);
 	}
+	
+	
+	private static int getFilelength(File f){ int l = 0; try{ l = AudioSystem.getAudioInputStream(f).available(); return l;}catch(IOException | UnsupportedAudioFileException e){return -1;}}
 	
 }
