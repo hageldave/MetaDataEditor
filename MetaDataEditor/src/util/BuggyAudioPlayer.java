@@ -31,7 +31,7 @@ public class BuggyAudioPlayer {
 	/** Constructor */
 	public BuggyAudioPlayer() {
 		this.player = new BasicPlayer();
-//		this.player.setSleepTime(0);
+		this.player.setSleepTime(0);
 		this.control = (BasicController)player;
 		player.addBasicPlayerListener(new BasicPlayerListener() {
 			
@@ -89,16 +89,18 @@ public class BuggyAudioPlayer {
 	
 	/**
 	 * stops currently playing audio. <br>
-	 * ( use reset() before play() )
+	 * ( use reset() before replay )
 	 */
 	public void stop(){
 		Thread currentthread = player.getCurrentThread();
 		try {
 			control.stop();
-			if(currentthread != null){
-				currentthread.join();
-			}
 		} catch (BasicPlayerException e) {
+		}
+		try {
+			if(currentthread != null){
+				currentthread.join(1000);
+			}
 		} catch (InterruptedException e) {
 		}
 	}
@@ -142,6 +144,7 @@ public class BuggyAudioPlayer {
 		long newPosition = (long)((pos/100.0)*filelength);
 		boolean wasPlaying = player.getStatus() == BasicPlayer.PLAYING;
 		try {
+			System.out.println("stopping");
 			stop();
 			control.open(audioFile);
 			currentPosition = control.seek(newPosition);
