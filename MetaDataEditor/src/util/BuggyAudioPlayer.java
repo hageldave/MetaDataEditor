@@ -1,6 +1,7 @@
 package util;
 
 import java.io.File;
+import java.util.LinkedList;
 import java.util.Map;
 
 import javazoom.jlgui.basicplayer.BasicController;
@@ -26,7 +27,12 @@ public class BuggyAudioPlayer {
 	
 	private volatile long currentPosition = 0;
 	
-	private long filelength = 0;
+	private int filelength = 0;
+	
+	
+	
+	private LinkedList<BuggyPlayerProgressListener> listeners = new LinkedList<BuggyPlayerProgressListener>();
+	
 	
 	/** Constructor */
 	public BuggyAudioPlayer() {
@@ -47,13 +53,14 @@ public class BuggyAudioPlayer {
 			public void progress(int bytesread, long microseconds, byte[] pcmdata,
 					Map properties) {
 				currentPosition = bytesread;
-//				System.out.println(bytesread);
+				notifyProgress((int)((bytesread/(double)filelength) * 100));
 			}
 			
 			@Override
 			public void opened(Object stream, Map properties) {
 			}
 		});
+		BasicPlayer.enableLogging(false);
 	}
 	
 	/**
@@ -64,9 +71,13 @@ public class BuggyAudioPlayer {
 	 */
 	public void openAudioFile(File audioFile) throws BasicPlayerException{
 		this.audioFile = audioFile;
-		filelength = audioFile.length();
+		filelength = (int) audioFile.length();
+		if(filelength != audioFile.length()){
+			throw new BasicPlayerException("file is too large!");
+		}
 		stop();
 		control.open(audioFile);
+		notifyProgress(0);
 	}
 	
 	/**
@@ -118,6 +129,7 @@ public class BuggyAudioPlayer {
 		} catch (BasicPlayerException e) {
 		}
 		currentPosition = 0;
+		notifyProgress(0);
 	}
 	
 	/**
@@ -155,6 +167,34 @@ public class BuggyAudioPlayer {
 		} catch (BasicPlayerException e) {
 		}
 
+	}
+	
+	
+	private void notifyProgress(int percent){
+		for(BuggyPlayerProgressListener l: listeners){
+			l.madeProgress(percent);
+		}
+	}
+	
+	public void addProgressListener(BuggyPlayerProgressListener l){
+		if(l!=null){
+			this.listeners.add(l);
+		}
+	}
+	
+	public boolean removeProgressListener(BuggyPlayerProgressListener l){
+		return this.listeners.remove(l);
+	}
+	
+	
+	public static interface BuggyPlayerProgressListener {
+		/** 
+		 * is called several times per second by BuggyAudioPlayer 
+		 * when progress is made while playing.
+		 * @param percent determines how much of the file has been
+		 * 		played already (in % -> 0 - 100)
+		 */
+		public void madeProgress(int percent);
 	}
 	
 }
