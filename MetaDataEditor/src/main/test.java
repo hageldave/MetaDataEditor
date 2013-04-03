@@ -10,13 +10,7 @@ import javax.swing.JSlider;
 
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 
-import org.jaudiotagger.audio.AudioFileIO;
-import org.jaudiotagger.audio.exceptions.CannotReadException;
-import org.jaudiotagger.audio.exceptions.CannotWriteException;
-import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
-import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 import org.jaudiotagger.tag.FieldKey;
-import org.jaudiotagger.tag.TagException;
 
 import util.BuggyAudioPlayer;
 import util.BuggyAudioPlayer.BuggyPlayerProgressListener;
@@ -68,27 +62,32 @@ public class test {
 		try {
 			player.openAudioFile(mp3);
 		} catch (BasicPlayerException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("play");
+		System.out.println("play - playing 10seconds");
 		player.play();
 		Thread.sleep(10000);
-		System.out.println("pause");
+		System.out.println("pause - pausing 1second");
 		player.pause();
 		Thread.sleep(1000);
-		System.out.println("resume");
+		System.out.println("resume - playing 1second");
 		player.play();
 		Thread.sleep(1000);
-		System.out.println("skip");
+		System.out.println("skip to 50 - playing 1second");
 		player.setStreamPosition(50);
 		Thread.sleep(1000);
-		System.out.println("skip");
+		System.out.println("skip to 30 - playing 1second");
 		player.setStreamPosition(30);
 		Thread.sleep(1000);
-		System.out.println("skip");
+		System.out.println("skip to 100 - (end of file) waiting 1second anyway");
 		player.setStreamPosition(100);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
+		System.out.println("reset/skip to 70");
+		player.reset();
+		player.setStreamPosition(70);
+		System.out.println("play - playing 2seconds");
+		player.play();
+		Thread.sleep(2000);
 		System.out.println("stop");
 		player.stop();
 		

@@ -164,11 +164,9 @@ public class BuggyAudioPlayer {
 		long newPosition = (long)((pos/100.0)*filelength);
 		boolean wasPlaying = player.getStatus() == BasicPlayer.PLAYING;
 		try {
-			System.out.println("stopping");
 			stop();
 			control.open(audioFile);
 			currentPosition = control.seek(newPosition);
-			System.out.println("newpos= " + newPosition);
 			if(wasPlaying){
 				control.play();
 			}
@@ -184,6 +182,10 @@ public class BuggyAudioPlayer {
 		}
 	}
 	
+	/** 
+	 * Add a {@link BuggyPlayerProgressListener} to this player 
+	 * @param l the listener
+	 */
 	public void addProgressListener(BuggyPlayerProgressListener l){
 		if(l!=null){
 			this.listeners.add(l);
@@ -195,6 +197,10 @@ public class BuggyAudioPlayer {
 	}
 	
 	
+	/**
+	 * Interface for listening to progress made while playing media. <br>
+	 * provides method: {@link #madeProgress(int)}
+	 */
 	public static interface BuggyPlayerProgressListener {
 		/** 
 		 * is called several times per second by BuggyAudioPlayer 
