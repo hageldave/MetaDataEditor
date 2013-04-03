@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.JFrame;
+import javax.swing.JSlider;
+
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 import org.jaudiotagger.audio.AudioFileIO;
@@ -42,6 +45,25 @@ public class test {
 				
 			}
 		});
+		
+		// frame mit slider
+		// -----------------------
+		JFrame frame = new JFrame();
+		frame.setSize(400, 200);
+		final JSlider slider = new JSlider(JSlider.HORIZONTAL);
+		slider.setMinimum(0);
+		slider.setMaximum(100);
+		frame.add(slider);
+		player.addProgressListener(new BuggyPlayerProgressListener() {
+			
+			@Override
+			public void madeProgress(int percent) {
+				slider.setValue(percent);
+			}
+		});
+		frame.setVisible(true);
+		// -----------------------
+		
 		System.out.println("open");
 		try {
 			player.openAudioFile(mp3);
@@ -77,6 +99,6 @@ public class test {
 		MetadataIO.writeMetaValues(mp3, metavalues);
 		System.out.println(MetadataIO.getMetaValue(mp3, FieldKey.MOOD));
 		
-
+		frame.dispose();
 	}
 }
