@@ -28,7 +28,7 @@ public class MetaDataView extends RelativeLayoutPanel {
 	}
 	
 	private void initTable() {
-		metaTable = new JTable(new Object[99][2], new Object[]{"Type","Value"});
+		metaTable = new JTable(new Object[0][3], new Object[]{"Key", "Type", "Value"});
 	}
 	
 	
