@@ -53,6 +53,11 @@ public class BidirectionalMap <K, V> implements Map<K, V>{
 		return normalMap.entrySet();
 	}
 	
+	/**
+	 * like {@link #entrySet()} but reverse -> returns 
+	 * a set of the values with mapped keys
+	 * @return
+	 */
 	public Set<java.util.Map.Entry<V, K>> reverseEntrySet() {
 		return reverseMap.entrySet();
 	}
@@ -83,8 +88,8 @@ public class BidirectionalMap <K, V> implements Map<K, V>{
 	
 	/**
 	 * like {@link #keySet()} but reverse -> returns 
-	 * a set of the values with mapped keys
-	 * @return
+	 * a set of the values
+	 * @return set of values
 	 */
 	public Set<V> reverseKeySet() {
 		return reverseMap.keySet();
