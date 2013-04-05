@@ -192,13 +192,22 @@ public class MetaDataTable extends JTable {
 	    }
 	    
 		@Override
-	    public boolean isCellEditable(int row, int col)
-	        { return col != 1; }
+	    public boolean isCellEditable(int row, int col) { 
+			if(col == 1){
+				// second column is not editable
+				return false;
+			} else if(col == 2){
+				// when no file displayed -> not editable
+				return owner.displayedFile != null; 
+			} else {
+				return true;
+			}
+		}
 	    
 		@Override
 	    public void setValueAt(Object value, int row, int col) {
 			switch (col) {
-			case 0: // changed RenamKey mapping
+			case 0: // changed RenameKey mapping
 				owner.firstColumn[row] = (RenameKey) value;
 				if(value != null){
 					Overview.getRenameKeyMapping().put(owner.firstColumn[row], owner.secondColumn[row]);
@@ -271,6 +280,13 @@ public class MetaDataTable extends JTable {
 		fieldkeys.add(FieldKey.TITLE);
 		table.setFieldKeys(fieldkeys);
 		System.out.println("done");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		table.setDisplayedFile(null);
 	}
 
 }
