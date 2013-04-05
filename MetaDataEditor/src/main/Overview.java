@@ -1,8 +1,15 @@
 package main;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JFrame;
+
+import org.jaudiotagger.tag.FieldKey;
+
+import util.BidirectionalMap;
+import util.RenameKey;
 
 import gui.Browser;
 import gui.CheckBoxPanel;
@@ -14,7 +21,7 @@ import gui.SuggestionsPanel;
 /**
  * Klasse die die Kommunikation zwischen Panels und anderen Teilen des 
  * Programms erleichtert. Z.B. werden hier die Panels registriert, und
- * können so von allen Klassen abgerufen werden.
+ * kï¿½nnen so von allen Klassen abgerufen werden.
  * @author David
  */
 public class Overview {
@@ -32,6 +39,8 @@ public class Overview {
 	private static PlayerViewPanel playerViewPanel;
 	
 	private static SuggestionsPanel suggestionsPanel;
+	
+	private static BidirectionalMap<RenameKey, FieldKey> renameKeyFieldKeyMap;
 
 	
 	/* anderes Zeug */
@@ -95,6 +104,18 @@ public class Overview {
 
 	public static void setSelectedFiles(File[] selectedFiles) {
 		Overview.selectedFiles = selectedFiles;
+	}
+	
+	public static BidirectionalMap<RenameKey, FieldKey> getRenameKeyMapping(){
+		if(renameKeyFieldKeyMap == null){
+			initRenameKeyFieldKeyMap();
+		}
+		return renameKeyFieldKeyMap;
+	}
+	
+	
+	private static void initRenameKeyFieldKeyMap(){
+		renameKeyFieldKeyMap = new BidirectionalMap<RenameKey, FieldKey>();
 	}
 	
 	
