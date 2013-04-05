@@ -7,7 +7,9 @@ import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
 
 import main.Overview;
@@ -15,6 +17,7 @@ import main.test.TestFrame;
 
 import org.jaudiotagger.tag.FieldKey;
 
+import sun.swing.table.DefaultTableCellHeaderRenderer;
 import util.MetadataIO;
 import util.RenameKey;
 
@@ -30,7 +33,7 @@ public class MetaDataTable extends JTable {
 	String[] thirdColumn = new String[0];
 	
 	/** names for columns */
-	String[] columnNames = new String[]{"Key", "Type", "Value"};
+	String[] columnNames = new String[]{"Key", "Type ", " Value"};
 	
 	/** file of which metavalues are displayed */
 	File displayedFile;
@@ -48,15 +51,35 @@ public class MetaDataTable extends JTable {
 	 * Sets Model and Column Names
 	 */
 	public MetaDataTable() {
-		super(new Object[0][3],new Object[]{"Key", "Type", "Value"});
+		super(new Object[0][3],new Object[]{"","",""});
 		this.setModel(tableModel = new MyTableModel(this));
+		this.getColumnModel().getColumn(0).setMaxWidth(50);
+		setupColumnAlignments();
+	}
+	
+	
+	private void setupColumnAlignments(){
+		DefaultTableCellRenderer secondColRenderer = new DefaultTableCellRenderer();
+		DefaultTableCellHeaderRenderer secondHeaderRenderer = new DefaultTableCellHeaderRenderer();
+		DefaultTableCellRenderer thirdColRenderer = new DefaultTableCellRenderer();
+		DefaultTableCellHeaderRenderer thirdHeaderRenderer = new DefaultTableCellHeaderRenderer();
+		
+		secondColRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
+		secondHeaderRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
+		thirdColRenderer.setHorizontalAlignment(SwingConstants.LEFT);
+		thirdHeaderRenderer.setHorizontalAlignment(SwingConstants.LEFT);
+		
+		this.getColumnModel().getColumn(1).setCellRenderer(secondColRenderer);
+		this.getColumnModel().getColumn(2).setCellRenderer(thirdColRenderer);
+		this.getColumnModel().getColumn(1).setHeaderRenderer(secondHeaderRenderer);
+		this.getColumnModel().getColumn(2).setHeaderRenderer(thirdHeaderRenderer);
 	}
 	
 	
 	/**
 	 * Sets the File to be displayed by this Table.
 	 * <p></p>
-	 * Table gets updated to display the file immediatly 
+	 * Table gets updated to display the file immediately 
 	 * @param file to be displayed
 	 */
 	public void setDisplayedFile(File file){
@@ -227,11 +250,9 @@ public class MetaDataTable extends JTable {
 
 	
 	public static void main(String[] args) {
+		// testing area
 		TestFrame frame = new TestFrame();
 		MetaDataTable table = new MetaDataTable();
-//		table.firstColumn = new RenameKey[]{null};
-//		table.secondColumn = new FieldKey[]{FieldKey.ARTIST};
-//		table.thirdColumn = new String[]{"myinterpret"};
 		ArrayList<FieldKey> fieldkeys = new ArrayList<>();
 		fieldkeys.add(FieldKey.ARTIST);
 		fieldkeys.add(FieldKey.MOOD);
