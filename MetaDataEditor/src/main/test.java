@@ -27,7 +27,7 @@ public class test {
 		File mp3 = new File("testfile/test.mp3"); // <- muss ggf in ordner testfile getan werden
 		
 		// metadata interpret auslesen
-		System.out.println(MetadataIO.getMetaValue(mp3, FieldKey.ARTIST));
+		System.out.println(MetadataIO.getMetaValue(mp3, FieldKey.TITLE));
 		
 		// player bauen
 		BuggyAudioPlayer player = new BuggyAudioPlayer();
@@ -42,8 +42,7 @@ public class test {
 		
 		// frame mit slider
 		// -----------------------
-		JFrame frame = new JFrame();
-		frame.setSize(400, 200);
+		TestFrame frame = new TestFrame();
 		final JSlider slider = new JSlider(JSlider.HORIZONTAL);
 		slider.setMinimum(0);
 		slider.setMaximum(100);
@@ -94,10 +93,19 @@ public class test {
 		
 		// metadaten 'mood' schreiben
 		Map<FieldKey, String> metavalues = new HashMap<>();
-		metavalues.put(FieldKey.MOOD, "awesome");
+		metavalues.put(FieldKey.TITLE, "I want you so hard");
 		MetadataIO.writeMetaValues(mp3, metavalues);
 		System.out.println(MetadataIO.getMetaValue(mp3, FieldKey.MOOD));
 		
 		frame.dispose();
+	}
+	
+	
+	public static class TestFrame extends JFrame {
+		
+		public TestFrame() {
+			this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+			this.setSize(400, 400);
+		}
 	}
 }

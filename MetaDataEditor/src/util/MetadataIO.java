@@ -21,6 +21,9 @@ import org.jaudiotagger.tag.TagException;
 public class MetadataIO {
 	
 	public static String getMetaValue(File file, FieldKey fieldKey){
+		if(file == null){
+			return "";
+		}
 		try {
 			AudioFile audFile = AudioFileIO.read(file);
 			String value = audFile.getTagOrCreateAndSetDefault().getFirst(fieldKey);
@@ -40,6 +43,9 @@ public class MetadataIO {
 	
 	
 	public static boolean writeMetaValues(File file, Map<FieldKey, String> values){
+		if(file == null){
+			return false;
+		}
 		try {
 			AudioFile audFile = AudioFileIO.read(file);
 			Tag tag = audFile.getTagOrCreateAndSetDefault();
