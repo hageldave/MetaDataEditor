@@ -2,6 +2,10 @@ package util;
 
 import java.io.File;
 
+import main.Overview;
+
+import org.jaudiotagger.tag.FieldKey;
+
 public class FileRenamer {
 	
 	public static boolean rename(File file, String nameFormat) {
@@ -37,13 +41,21 @@ public class FileRenamer {
 	}
 	
 	private static String getStringForKey(File f, char keyChar) {
-		// TODO Auto-generated method stub
-		return keyChar + "---";
+		RenameKey renamekey;
+		try {
+			renamekey = RenameKey.valueOf("$"+keyChar);
+		} catch (IllegalArgumentException e) {
+			return "";
+		}
+		FieldKey fieldkey = Overview.getRenameKeyMapping().get(renamekey);
+		if(fieldkey == null){
+			return "";
+		}
+		return MetadataIO.getMetaValue(f, fieldkey);
 	}
 
 	public static void main(String[] args) {
-		File f = null;
-		File f2 = new File(f, "fds");
-		System.out.println();
+		// testing area
+		System.out.println(getStringForKey(null, 'e'));
 	}
 }
