@@ -34,7 +34,7 @@ public class MetaDataTable extends JTable {
 	String[] thirdColumn = new String[0];
 	
 	/** names for columns */
-	String[] columnNames = new String[]{"Key", "Type ", " Value"};
+	String[] columnNames = new String[]{"Key", "Field", "Value"};
 	
 	/** file of which metavalues are displayed */
 	File displayedFile;
@@ -55,26 +55,26 @@ public class MetaDataTable extends JTable {
 		super(new Object[0][3],new Object[]{"","",""});
 		this.setModel(tableModel = new MyTableModel(this));
 		this.getColumnModel().getColumn(0).setMaxWidth(50);
-		setupColumnAlignments();
+//		setupColumnAlignments();
 	}
 	
 	
-	private void setupColumnAlignments(){
-		DefaultTableCellRenderer secondColRenderer = new DefaultTableCellRenderer();
-		DefaultTableCellHeaderRenderer secondHeaderRenderer = new DefaultTableCellHeaderRenderer();
-		DefaultTableCellRenderer thirdColRenderer = new DefaultTableCellRenderer();
-		DefaultTableCellHeaderRenderer thirdHeaderRenderer = new DefaultTableCellHeaderRenderer();
-		
-		secondColRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
-		secondHeaderRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
-		thirdColRenderer.setHorizontalAlignment(SwingConstants.LEFT);
-		thirdHeaderRenderer.setHorizontalAlignment(SwingConstants.LEFT);
-		
-		this.getColumnModel().getColumn(1).setCellRenderer(secondColRenderer);
-		this.getColumnModel().getColumn(2).setCellRenderer(thirdColRenderer);
-		this.getColumnModel().getColumn(1).setHeaderRenderer(secondHeaderRenderer);
-		this.getColumnModel().getColumn(2).setHeaderRenderer(thirdHeaderRenderer);
-	}
+//	private void setupColumnAlignments(){
+//		DefaultTableCellRenderer secondColRenderer = new DefaultTableCellRenderer();
+//		DefaultTableCellHeaderRenderer secondHeaderRenderer = new DefaultTableCellHeaderRenderer();
+//		DefaultTableCellRenderer thirdColRenderer = new DefaultTableCellRenderer();
+//		DefaultTableCellHeaderRenderer thirdHeaderRenderer = new DefaultTableCellHeaderRenderer();
+//		
+//		secondColRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
+//		secondHeaderRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
+//		thirdColRenderer.setHorizontalAlignment(SwingConstants.LEFT);
+//		thirdHeaderRenderer.setHorizontalAlignment(SwingConstants.LEFT);
+//		
+//		this.getColumnModel().getColumn(1).setCellRenderer(secondColRenderer);
+//		this.getColumnModel().getColumn(2).setCellRenderer(thirdColRenderer);
+//		this.getColumnModel().getColumn(1).setHeaderRenderer(secondHeaderRenderer);
+//		this.getColumnModel().getColumn(2).setHeaderRenderer(thirdHeaderRenderer);
+//	}
 	
 	
 	/**

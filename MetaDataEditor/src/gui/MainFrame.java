@@ -14,6 +14,7 @@ public class MainFrame extends JFrame {
 	public MainFrame () {
 		//TODO:...
 		setDefaultLookAndFeelDecorated(true);
+		Overview.setMainFrame(this);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setJMenuBar(new MetaMenuBar());
 //		this.setPreferredSize(new Dimension(650, 450));
@@ -27,7 +28,6 @@ public class MainFrame extends JFrame {
 		((RelativeLayoutPanel)this.getContentPane()).add(new MetaDataView(), 0.375f, 0.75f, true, 0.75f, 0.5f);
 		
 		this.setVisible(true);
-		Overview.setMainFrame(this);
 	}
 	
 	
