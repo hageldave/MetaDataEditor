@@ -1,12 +1,12 @@
 package gui;
 
+import gui.util.MetaDataTable;
 import gui.util.RelativeLayoutPanel;
 
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 
 import org.jaudiotagger.tag.FieldKey;
 
@@ -15,7 +15,7 @@ import main.Overview;
 @SuppressWarnings("serial")
 public class MetaDataView extends RelativeLayoutPanel {
 	
-	JTable metaTable;
+	MetaDataTable metaTable;
 	
 	JScrollPane scrollpane;
 	
@@ -29,13 +29,13 @@ public class MetaDataView extends RelativeLayoutPanel {
 	}
 	
 	private void initTable() {
-		metaTable = new JTable(new Object[0][3], new Object[]{"Key", "Type", "Value"});
+		metaTable = new MetaDataTable();
 	}
 	
 	
 	public void setAvailableMetaTypes(ArrayList<FieldKey> metaTypes){
 		System.out.println("MetaDataView: changing metafields");
-		//TODO: gewuenschte metatypefelder zur verf�gung stellen
+		metaTable.setFieldKeys(metaTypes);
 	}
 	
 	
