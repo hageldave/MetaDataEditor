@@ -20,6 +20,15 @@ import org.jaudiotagger.tag.TagException;
 
 public class MetadataIO {
 	
+	/**
+	 * Gets the metadata value of the specified file for the specified
+	 * {@link FieldKey} <br>
+	 * (e.g.: getMetaValue(myFile, Fieldkey.ARTIST) )
+	 * @param file
+	 * @param fieldKey {@link FieldKey}
+	 * @return metadata value of file for specified key, or "" if something
+	 * 		goes wrong or the file has no entry for that key
+	 */
 	public static String getMetaValue(File file, FieldKey fieldKey){
 		if(file == null){
 			return "";
@@ -41,7 +50,18 @@ public class MetadataIO {
 		}
 	}
 	
-	
+	/**
+	 * Writes the metadata values contained in the specified Map to the
+	 * specified File. When writing succeeds true is returned otherwise
+	 * false. <br>
+	 * (e.g.: <br><code>
+	 * Map<FieldKey, String> myValues = new HashMap<>(); <br>
+	 * myValues.put(FieldKey.ARTIST, "Eric Clapton"); <br>
+	 * writeMetaValues(myFile, myValues); </code> )
+	 * @param file
+	 * @param values {@link Map}<{@link FieldKey}, {@link String}>
+	 * @return true if writing values succeeded, else false
+	 */
 	public static boolean writeMetaValues(File file, Map<FieldKey, String> values){
 		if(file == null){
 			return false;
