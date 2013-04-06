@@ -7,6 +7,7 @@ import org.jaudiotagger.tag.FieldKey;
 /**
  * JCheckbox die zusaetzlich noch einen MetaType parameter besitzt.
  */
+@SuppressWarnings("serial")
 public class MetaTypeCheckBox extends JCheckBox {
 
 	private FieldKey metaType;

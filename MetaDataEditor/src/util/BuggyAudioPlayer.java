@@ -1,7 +1,6 @@
 package util;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Map;
@@ -56,13 +55,13 @@ public class BuggyAudioPlayer {
 			
 			@Override
 			public void progress(int bytesread, long microseconds, byte[] pcmdata,
-					Map properties) {
+					@SuppressWarnings("rawtypes") Map properties) {
 				currentPosition = bytesread;
-				notifyProgress((int)((bytesread/(double)filelength) * 100));
+				notifyProgress((int)((currentPosition/(double)filelength) * 100));
 			}
 			
 			@Override
-			public void opened(Object stream, Map properties) {
+			public void opened(Object stream, @SuppressWarnings("rawtypes") Map properties) {
 			}
 		});
 		BasicPlayer.enableLogging(false);

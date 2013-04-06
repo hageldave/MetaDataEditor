@@ -1,14 +1,10 @@
 package gui;
 
-import java.awt.Color;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JSlider;
 
+@SuppressWarnings("serial")
 public class MetaMenuBar extends JMenuBar {
 
 	JMenu data;
@@ -41,10 +37,10 @@ public class MetaMenuBar extends JMenuBar {
 	}
 
 	private void initMenuItem() {
-		openFile = new JMenuItem("MP3-Datei öffnen");
+		openFile = new JMenuItem("MP3-Datei ï¿½ffnen");
 		removeFile = new JMenuItem("Datei entfernen");
 		removeAll = new JMenuItem("Alle entfernen");
-		exit = new JMenuItem("Schließen");
+		exit = new JMenuItem("Schlieï¿½en");
 	}
 
 	private void addItemToMenu() {

@@ -21,6 +21,7 @@ import sun.swing.table.DefaultTableCellHeaderRenderer;
 import util.MetadataIO;
 import util.RenameKey;
 
+@SuppressWarnings("serial")
 public class MetaDataTable extends JTable {
 	
 	/** Rename Keys (e.g. $t )*/

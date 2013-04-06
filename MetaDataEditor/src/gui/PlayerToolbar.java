@@ -6,6 +6,7 @@ import javax.swing.JSlider;
 
 import gui.util.RelativeLayoutPanel;
 
+@SuppressWarnings("serial")
 public class PlayerToolbar extends RelativeLayoutPanel {
 	
 	JButton play = new JButton("play");

@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import main.Overview;
 
+@SuppressWarnings("serial")
 public class SuggestionsPanel extends JPanel {
 
 	public SuggestionsPanel() {

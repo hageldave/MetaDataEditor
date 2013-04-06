@@ -1,8 +1,6 @@
 package main;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.swing.JFrame;
 
@@ -13,7 +11,7 @@ import util.RenameKey;
 
 import gui.Browser;
 import gui.CheckBoxPanel;
-import gui.MainFrame;
+//import gui.MainFrame;
 import gui.MetaDataView;
 import gui.PlayerViewPanel;
 import gui.SuggestionsPanel;

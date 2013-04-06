@@ -9,6 +9,8 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
+
+@SuppressWarnings("serial")
 public class NiceCheckboxList extends JList<Component> {
 	
 	public NiceCheckboxList(Component[] listData) {

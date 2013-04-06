@@ -101,6 +101,7 @@ public class test {
 	}
 	
 	
+	@SuppressWarnings("serial")
 	public static class TestFrame extends JFrame {
 		
 		public TestFrame() {

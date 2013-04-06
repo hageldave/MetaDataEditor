@@ -6,7 +6,6 @@ import gui.util.RelativeLayoutPanel;
 import gui.util.FileTreePanel.FileTreeNode;
 
 import java.awt.Component;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
@@ -14,7 +13,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.SwingUtilities;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 
@@ -38,6 +36,7 @@ public class Browser extends RelativeLayoutPanel {
 	
 	/** erstellt den refresh button und fuegt ihn zum panel hinzu */
 	private void buildRefreshBttn(){
+		@SuppressWarnings("serial")
 		JButton refreshButton = new JButton(new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

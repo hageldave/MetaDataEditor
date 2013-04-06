@@ -1,10 +1,10 @@
 package gui;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import main.Overview;
 
+@SuppressWarnings("serial")
 public class PlayerViewPanel extends JPanel {
 	
 	public PlayerViewPanel() {

@@ -5,16 +5,12 @@ import gui.util.MetaTypeCheckBox;
 import gui.util.RelativeLayoutPanel;
 
 import java.awt.Component;
-import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
 import java.util.ArrayList;
 
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 
@@ -22,6 +18,7 @@ import org.jaudiotagger.tag.FieldKey;
 
 import main.Overview;
 
+@SuppressWarnings("serial")
 public class CheckBoxPanel extends RelativeLayoutPanel {
 
 	MetaTypeCheckBox titel = new MetaTypeCheckBox("Titel", FieldKey.TITLE);

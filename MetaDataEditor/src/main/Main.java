@@ -2,7 +2,6 @@ package main;
 
 import gui.MainFrame;
 
-import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -30,7 +29,7 @@ public class Main {
 			
 			@Override
 			public void run() {
-				MainFrame mainFrame = new MainFrame();				
+				new MainFrame();				
 			}
 		});
 

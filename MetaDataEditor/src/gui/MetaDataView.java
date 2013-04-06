@@ -12,6 +12,7 @@ import org.jaudiotagger.tag.FieldKey;
 
 import main.Overview;
 
+@SuppressWarnings("serial")
 public class MetaDataView extends RelativeLayoutPanel {
 	
 	JTable metaTable;

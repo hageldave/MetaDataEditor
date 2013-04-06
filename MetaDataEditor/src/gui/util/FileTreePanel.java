@@ -22,6 +22,7 @@ import javax.swing.tree.TreeNode;
  * JScrollpane das einen JTree beinhaltet der die 
  * Ordner des Dateisystems anzeigt.
  */
+@SuppressWarnings("serial")
 public class FileTreePanel extends JScrollPane {
 	
 	/** SelectionListener des jTrees */
@@ -160,9 +161,9 @@ public class FileTreePanel extends JScrollPane {
 		}
 
 
-		public Enumeration children() {
+		public Enumeration<File> children() {
 			final int elementCount = this.children.length;
-			return new Enumeration() {
+			return new Enumeration<File>() {
 
 				int count = 0;
 

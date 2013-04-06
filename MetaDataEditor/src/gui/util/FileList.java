@@ -12,6 +12,7 @@ import javax.swing.event.ListDataListener;
 /**
  * JList fuer Files.
  */
+@SuppressWarnings("serial")
 public class FileList extends JList<File> {
 	
 	File[] entries;

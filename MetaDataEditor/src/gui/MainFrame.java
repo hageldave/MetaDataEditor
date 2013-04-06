@@ -2,13 +2,13 @@ package gui;
 
 import gui.util.RelativeLayoutPanel;
 
-import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
 import main.Overview;
 
+@SuppressWarnings("serial")
 public class MainFrame extends JFrame {
 	
 	public MainFrame () {
