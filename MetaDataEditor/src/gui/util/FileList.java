@@ -29,6 +29,9 @@ public class FileList extends JList<File> {
 		super.setListData(listData);
 	}
 	
+	/**
+	 * @return Array der Files in der Liste
+	 */
 	private File[] getListData() {
 		return entries;
 	}

@@ -38,12 +38,11 @@ public class Overview {
 	
 	private static SuggestionsPanel suggestionsPanel;
 	
-	private static BidirectionalMap<RenameKey, FieldKey> renameKeyFieldKeyMap;
-
-	
 	/* anderes Zeug */
 	
 	private static File[] selectedFiles;
+	
+	private static BidirectionalMap<RenameKey, FieldKey> renameKeyFieldKeyMap;
 	
 	
 	/* getter & setter */

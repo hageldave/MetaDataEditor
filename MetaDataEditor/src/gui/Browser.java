@@ -11,7 +11,6 @@ import java.io.File;
 
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.event.TreeSelectionEvent;
@@ -20,7 +19,10 @@ import javax.swing.event.TreeSelectionListener;
 import main.Overview;
 
 /**
- * Klasse fuer den FileBrowser
+ * Klasse fuer den FileBrowser. <br>
+ * Enthaelt einen Tree mit den Ordnern des Filesystems
+ * und eine Liste die die Audiodateien des im Tree
+ * ausgewaehlten Ordners anzeigt.
  */
 public class Browser extends RelativeLayoutPanel {
 	
@@ -30,6 +32,9 @@ public class Browser extends RelativeLayoutPanel {
 	private static final JLabel loadingLabel = new JLabel("loading Filesystem...", JLabel.CENTER);
 	
 	
+	/**
+	 * Konstruktor fuer {@link Browser}
+	 */
 	public Browser() {
 		loadFileView();
 		Overview.setBrowser(this);
@@ -67,6 +72,9 @@ public class Browser extends RelativeLayoutPanel {
 	}
 	
 	
+	/** entfernt alle Komponenten und erstellt sie
+	 * neu. dazu wird {@link #loadFileView()} aufgerufen
+	 */
 	private void reloadFileView(){
 		for(Component comp :this.getComponents()){
 			this.remove(comp);
@@ -75,6 +83,9 @@ public class Browser extends RelativeLayoutPanel {
 	}
 	
 	
+	/** Runnable die die Routine fuer das laden
+	 * der Fileview Komponenten enthaelt
+	 */
 	private class FileviewLoadingRoutine implements Runnable {
 		@Override
 		public void run() {

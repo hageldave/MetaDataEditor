@@ -7,9 +7,7 @@ import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
 
 import main.Overview;
@@ -17,10 +15,16 @@ import main.test.TestFrame;
 
 import org.jaudiotagger.tag.FieldKey;
 
-import sun.swing.table.DefaultTableCellHeaderRenderer;
 import util.MetadataIO;
 import util.RenameKey;
 
+/**
+ * JTable fuer Anzeige der Metadaten einer Audiodatei. <br>
+ * Die 2te Spalte enthaelt die {@linkplain FieldKey}s der Metadaten. <br>
+ * Die 3te Spalte die zugehoerigen Werte der angezeigten Datei. <br>
+ * Die 1te Spalte enthalt die {@linkplain RenameKey}s die zur
+ * umbenennung der Datei verwendet werden koennen.
+ */
 @SuppressWarnings("serial")
 public class MetaDataTable extends JTable {
 	
@@ -44,7 +48,6 @@ public class MetaDataTable extends JTable {
 	
 	/** TableModel of this Table */
 	MyTableModel tableModel;
-	
 	
 	
 	/** 
@@ -86,6 +89,11 @@ public class MetaDataTable extends JTable {
 	public void setDisplayedFile(File file){
 		this.displayedFile = file;
 		fillValues();
+	}
+	
+	
+	public File getDisplayedFile() {
+		return this.displayedFile;
 	}
 	
 	
