@@ -23,8 +23,7 @@ public class NiceCheckboxList extends JList<Component> {
 				int index = locationToIndex(e.getPoint());
 
 	               if (index != -1) {
-	                  Component comp = (Component)
-	                              getModel().getElementAt(index);
+	                  Component comp = getModel().getElementAt(index);
 	                  comp.dispatchEvent(e);
 	                  if(comp instanceof JCheckBox){
 	                	  JCheckBox checkbox = (JCheckBox) comp;

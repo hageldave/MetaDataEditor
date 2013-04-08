@@ -3,6 +3,7 @@ package gui;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
+import javax.swing.SwingConstants;
 
 import gui.util.RelativeLayoutPanel;
 
@@ -17,7 +18,7 @@ public class PlayerToolbar extends RelativeLayoutPanel {
 		this.add(play, 		0, 		0.4f, 	false, 0.2f, 	0.6f);
 		this.add(slider, 	0.2f, 	0.4f, 	false, 0.7f, 	0.6f);
 		this.add(label, 	0, 		0, 		false, 1, 		0.4f);
-		this.label.setVerticalAlignment(JLabel.CENTER);
+		this.label.setVerticalAlignment(SwingConstants.CENTER);
 		this.setOpaque(false);
 	}
 

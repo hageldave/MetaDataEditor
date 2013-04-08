@@ -76,6 +76,7 @@ public class RelativeLayoutPanel extends JPanel{
 	 * DONT USE! 
 	 * setting a LayoutManager is not allowed for this kind of panel
 	 */
+	@Override
 	public void setLayout(LayoutManager mgr) {
 		// do nothing
 	}

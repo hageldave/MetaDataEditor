@@ -5,8 +5,8 @@ import gui.util.RelativeLayoutPanel;
 
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 import org.jaudiotagger.tag.FieldKey;
 
@@ -31,7 +31,7 @@ public class MetaDataView extends RelativeLayoutPanel {
 		initTable();
 		scrollpane = new JScrollPane(metaTable);
 		this.add(scrollpane, 0.5f, 0.5f, true, 1, 1);
-		scrollpane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollpane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 	}
 	
 	private void initTable() {

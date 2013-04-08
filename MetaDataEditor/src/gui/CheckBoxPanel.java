@@ -10,13 +10,11 @@ import java.awt.event.ItemListener;
 
 import java.util.ArrayList;
 
-import javax.swing.JCheckBox;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 import org.jaudiotagger.tag.FieldKey;
-
-import sun.security.util.DerEncoder;
 
 import main.Overview;
 
@@ -60,7 +58,7 @@ public class CheckBoxPanel extends RelativeLayoutPanel {
 	private void initListData() {
 		allCheckBoxes = new FieldKeyCheckBox[]{titel,interpret,album,jahr,titelnummer,genre};
 		addCheckedListener();
-		JSeparator sep = new JSeparator(JSeparator.HORIZONTAL);
+		JSeparator sep = new JSeparator(SwingConstants.HORIZONTAL);
 		listData = new Component[]{titel, interpret, album, sep, genre, jahr, titelnummer};
 	}
 
@@ -78,7 +76,7 @@ public class CheckBoxPanel extends RelativeLayoutPanel {
 			}
 		};
 
-		for(JCheckBox chckBox: allCheckBoxes){
+		for(FieldKeyCheckBox chckBox: allCheckBoxes){
 			chckBox.addItemListener(listener);
 		}
 	}
@@ -90,6 +88,7 @@ public class CheckBoxPanel extends RelativeLayoutPanel {
 		ArrayList<FieldKey> toReturn = new ArrayList<FieldKey>();
 		for(FieldKeyCheckBox checkbox: allCheckBoxes){
 			if(checkbox.isSelected()){
+				System.out.println("add " + checkbox.getFieldKey());
 				toReturn.add(checkbox.getFieldKey());
 			}
 		}

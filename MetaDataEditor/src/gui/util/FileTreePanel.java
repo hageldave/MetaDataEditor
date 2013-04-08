@@ -88,6 +88,7 @@ public class FileTreePanel extends JScrollPane {
 		private static Map<File, String> rootNameCache = new HashMap<File, String>();
 
 
+		@Override
 		public Component getTreeCellRendererComponent(JTree tree, Object value,
 				boolean sel, boolean expanded, boolean leaf, int row,
 				boolean hasFocus) {
@@ -161,6 +162,7 @@ public class FileTreePanel extends JScrollPane {
 		}
 
 
+		@Override
 		public Enumeration<File> children() {
 			final int elementCount = this.children.length;
 			return new Enumeration<File>() {
@@ -168,11 +170,13 @@ public class FileTreePanel extends JScrollPane {
 				int count = 0;
 
 
+				@Override
 				public boolean hasMoreElements() {
 					return this.count < elementCount;
 				}
 
 
+				@Override
 				public File nextElement() {
 					if(this.count < elementCount) {
 						return FileTreeNode.this.children[this.count++];
@@ -183,22 +187,26 @@ public class FileTreePanel extends JScrollPane {
 		}
 		
 
+		@Override
 		public boolean getAllowsChildren() {
 			return true;
 		}
 
 
+		@Override
 		public TreeNode getChildAt(int childIndex) {
 			return new FileTreeNode(this.children[childIndex],
 					this.parent == null, this);
 		}
 
 
+		@Override
 		public int getChildCount() {
 			return this.children.length;
 		}
 
 
+		@Override
 		public int getIndex(TreeNode node) {
 			FileTreeNode ftn = (FileTreeNode) node;
 			for(int i = 0; i < this.children.length; i++) {
@@ -209,11 +217,13 @@ public class FileTreePanel extends JScrollPane {
 		}
 
 
+		@Override
 		public FileTreeNode getParent() {
 			return this.parent;
 		}
 
 
+		@Override
 		public boolean isLeaf() {
 			return (this.getChildCount() == 0);
 		}

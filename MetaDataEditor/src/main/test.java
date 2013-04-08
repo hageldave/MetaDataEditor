@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.swing.JFrame;
 import javax.swing.JSlider;
+import javax.swing.SwingConstants;
 
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 
@@ -43,7 +44,7 @@ public class test {
 		// frame mit slider
 		// -----------------------
 		TestFrame frame = new TestFrame();
-		final JSlider slider = new JSlider(JSlider.HORIZONTAL);
+		final JSlider slider = new JSlider(SwingConstants.HORIZONTAL);
 		slider.setMinimum(0);
 		slider.setMaximum(100);
 		frame.add(slider);

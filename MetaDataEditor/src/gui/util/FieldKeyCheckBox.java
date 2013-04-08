@@ -19,14 +19,15 @@ public class FieldKeyCheckBox extends JCheckBox {
 	 */
 	public FieldKeyCheckBox(String title, FieldKey fieldkey) {
 		super(title);
-		setFieldKey(fieldKey);
+		setFieldKey(fieldkey);
+		System.out.println("setted key " + this.fieldKey );
 	}
 
 	/**
 	 * @return {@link FieldKey} dieser Checkbox
 	 */
 	public FieldKey getFieldKey() {
-		return fieldKey;
+		return this.fieldKey;
 	}
 
 	/**

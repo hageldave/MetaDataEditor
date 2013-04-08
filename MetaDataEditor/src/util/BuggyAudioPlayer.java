@@ -42,7 +42,7 @@ public class BuggyAudioPlayer {
 	public BuggyAudioPlayer() {
 		this.player = new BasicPlayer();
 		this.player.setSleepTime(0);
-		this.control = (BasicController)player;
+		this.control = player;
 		player.addBasicPlayerListener(new BasicPlayerListener() {
 			
 			@Override

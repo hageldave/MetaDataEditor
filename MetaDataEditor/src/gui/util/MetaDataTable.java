@@ -106,6 +106,7 @@ public class MetaDataTable extends JTable {
 		this.secondColumn = fieldkeys.toArray(arr);
 		fillValues();
 		fitRenameKeysToCurrentTable();
+		redrawColumn(1);
 		tableModel.fireTableDataChanged();
 	}
 	
@@ -117,6 +118,7 @@ public class MetaDataTable extends JTable {
 	private void fillValues(){
 		this.thirdColumn = new String[secondColumn.length];
 		for(int i = 0; i < secondColumn.length; i++){
+			System.out.println(secondColumn[i]);
 			this.thirdColumn[i] = MetadataIO.getMetaValue(displayedFile, secondColumn[i]);
 		}
 		redrawColumn(2);

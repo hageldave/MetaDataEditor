@@ -6,6 +6,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import org.jaudiotagger.tag.FieldKey;
+
 public class Main {
 
 	/**
@@ -16,15 +18,19 @@ public class Main {
 	 * @throws ClassNotFoundException 
 	 */
 	public static void main(String[] args) {
-		lookandfeel: do {
-		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-		} catch (ClassNotFoundException | InstantiationException
-				| IllegalAccessException | UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
-			continue lookandfeel;
+//		lookandfeel: do {
+//		try {
+//			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+//		} catch (ClassNotFoundException | InstantiationException
+//				| IllegalAccessException | UnsupportedLookAndFeelException e) {
+//			e.printStackTrace();
+//			continue lookandfeel;
+//		}
+//		} while (false);
+		for(FieldKey k : FieldKey.values()){
+			System.out.println(k);
 		}
-		} while (false);
+		
 		SwingUtilities.invokeLater(new Runnable() {
 			
 			@Override
