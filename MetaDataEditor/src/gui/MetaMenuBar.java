@@ -37,10 +37,10 @@ public class MetaMenuBar extends JMenuBar {
 	}
 
 	private void initMenuItem() {
-		openFile = new JMenuItem("MP3-Datei �ffnen");
+		openFile = new JMenuItem("MP3-Datei Oeffnen");
 		removeFile = new JMenuItem("Datei entfernen");
 		removeAll = new JMenuItem("Alle entfernen");
-		exit = new JMenuItem("Schlie�en");
+		exit = new JMenuItem("Schliessen");
 	}
 
 	private void addItemToMenu() {
